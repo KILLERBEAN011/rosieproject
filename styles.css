@@ -14,6 +14,14 @@ body {
 
 .container {
     z-index: 10;
+    transition: opacity 1s ease-in-out, transform 1s ease-in-out;
+}
+
+.container.hidden {
+    opacity: 0;
+    pointer-events: none;
+    position: absolute;
+    transform: scale(0.9);
 }
 
 .card {
@@ -50,6 +58,35 @@ h1 {
 .message strong {
     color: #d90429;
     font-size: 1.2em;
+}
+
+.welcome-card p {
+    font-size: 1.2em;
+    color: #555;
+    margin-bottom: 30px;
+}
+
+#reveal-button {
+    background-color: #ff4d6d;
+    color: white;
+    border: none;
+    padding: 15px 30px;
+    font-size: 1.2em;
+    font-family: 'Poppins', sans-serif;
+    border-radius: 30px;
+    cursor: pointer;
+    box-shadow: 0 5px 15px rgba(255, 77, 109, 0.4);
+    transition: all 0.3s ease;
+}
+
+#reveal-button:hover {
+    background-color: #ff3355;
+    transform: translateY(-3px);
+    box-shadow: 0 8px 20px rgba(255, 77, 109, 0.6);
+}
+
+#reveal-button:active {
+    transform: translateY(1px);
 }
 
 .signature {

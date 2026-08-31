@@ -1,5 +1,9 @@
 document.addEventListener("DOMContentLoaded", () => {
-    const container = document.getElementById('hearts-container');
+    const heartsContainer = document.getElementById('hearts-container');
+    const welcomeContainer = document.getElementById('welcome-container');
+    const messageContainer = document.getElementById('message-container');
+    const revealButton = document.getElementById('reveal-button');
+    let heartInterval;
 
     function createHeart() {
         const heart = document.createElement('div');
@@ -16,7 +20,7 @@ document.addEventListener("DOMContentLoaded", () => {
         heart.style.animationDuration = Math.random() * 3 + 3 + 's';
 
         // Add the heart to the container
-        container.appendChild(heart);
+        heartsContainer.appendChild(heart);
 
         // Remove the heart after it floats up to prevent DOM overload
         setTimeout(() => {
@@ -24,6 +28,18 @@ document.addEventListener("DOMContentLoaded", () => {
         }, 6000);
     }
 
-    // Create a new heart every 300ms
-    setInterval(createHeart, 300);
+    revealButton.addEventListener('click', () => {
+        // Hide welcome screen
+        welcomeContainer.classList.add('hidden');
+
+        // After a short delay, show the message screen and start hearts
+        setTimeout(() => {
+            messageContainer.classList.remove('hidden');
+
+            // Start heart animation
+            if (!heartInterval) {
+                heartInterval = setInterval(createHeart, 300);
+            }
+        }, 500); // Wait half a second for the fade out to finish
+    });
 });
