@@ -1,0 +1,91 @@
+@import url('https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&family=Poppins:wght@300;400;600&display=swap');
+
+body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Poppins', sans-serif;
+    background: linear-gradient(135deg, #ff9a9e 0%, #fecfef 99%, #fecfef 100%);
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+}
+
+.container {
+    z-index: 10;
+}
+
+.card {
+    background: rgba(255, 255, 255, 0.9);
+    padding: 40px;
+    border-radius: 20px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    max-width: 500px;
+    margin: 0 20px;
+    animation: fadeIn 2s ease-in-out;
+}
+
+.heart-icon {
+    font-size: 50px;
+    animation: pulse 1.5s infinite;
+    margin-bottom: 20px;
+}
+
+h1 {
+    font-family: 'Dancing Script', cursive;
+    color: #e63946;
+    font-size: 3em;
+    margin: 0 0 15px 0;
+}
+
+.message {
+    font-size: 1.1em;
+    color: #333;
+    line-height: 1.6;
+    margin-bottom: 25px;
+}
+
+.message strong {
+    color: #d90429;
+    font-size: 1.2em;
+}
+
+.signature {
+    font-family: 'Dancing Script', cursive;
+    font-size: 1.8em;
+    color: #e63946;
+}
+
+/* Animations */
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes pulse {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.1); }
+    100% { transform: scale(1); }
+}
+
+/* Floating hearts styling */
+.floating-heart {
+    position: absolute;
+    color: #ff4d6d;
+    font-size: 20px;
+    animation: float 4s ease-in infinite;
+    z-index: 1;
+}
+
+@keyframes float {
+    0% {
+        transform: translateY(100vh) scale(0.5);
+        opacity: 1;
+    }
+    100% {
+        transform: translateY(-10vh) scale(1.5);
+        opacity: 0;
+    }
+}
